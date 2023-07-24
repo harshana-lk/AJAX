@@ -14,12 +14,16 @@
     <script>
         document.querySelector("#btn").addEventListener("click", function(event) {
            let http = new XMLHttpRequest();
-           console.log(http.status,"After the XMLHttpRequest Object created");
+           console.log(http.readyState,"After the XMLHttpRequest Object created");
            http.open("GET", "db/db.txt", true);
            console.log(http.responseText);
-           console.log(http.status,"After the Opne method invoked");
+           console.log(http.readyState,"After the Opne method invoked");
            http.send();
-           console.log(http.status,"After the Response text printed");
+           console.log(http.readyState,"After the Response text printed");
+
+           http.onreadystatechange = function() {
+               console.log(http.readyState,"Inside on ReadyState onChanage");
+           }
         });
     </script>
 </body>
