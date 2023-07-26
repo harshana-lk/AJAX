@@ -14,15 +14,20 @@
 
     <script>
         document.querySelector("#btn").addEventListener("click", function(event) {
+            console.log("Started");
            let http = new XMLHttpRequest();
-           http.open("GET", "db/db.txt", true);
-           console.log(http.responseText);
-           http.send();
+           http.open("GET", "db/db.txt", false); // false=Synchronous(Blocking) , true=Asynchronous(Non-Blockiung)
+           
            http.onreadystatechange = function() {
+            
                if (http.readyState==4 && http.status==200) {
+                console.log(http.readyState,http.responseText);
                 document.querySelector(".display").innerHTML=http.responseText;
                }
+               
            }
+           http.send();
+           console.log("Ended");
         });
     </script>
 </body>
