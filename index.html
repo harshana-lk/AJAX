@@ -1,34 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>AJAX-Implementation</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Welcome to AJAX</h1>
     <h2>Let's implement AJAX with XMLHttpRequest Object</h2>
     <button id="btn" type="button">Send a Request</button>
     <p class="display"></p>
 
-
     <script>
-        document.querySelector("#btn").addEventListener("click", function(event) {
-            console.log("Started");
-           let http = new XMLHttpRequest();
-           http.open("GET", "db/db.txt", false); // false=Synchronous(Blocking) , true=Asynchronous(Non-Blockiung)
-           
-           http.onreadystatechange = function() {
-            
-               if (http.readyState==4 && http.status==200) {
-                console.log(http.readyState,http.responseText);
-                document.querySelector(".display").innerHTML=http.responseText;
-               }
-               
-           }
-           http.send();
-           console.log("Ended");
+      document
+        .querySelector("#btn")
+        .addEventListener("click", function (event) {
+          console.log("Started");
+          let http = new XMLHttpRequest();
+          http.open("GET", "db/db.txt", false); // false=Synchronous(Blocking) , true=Asynchronous(Non-Blockiung)
+
+          http.onreadystatechange = function () {
+            if (http.readyState == 4 && http.status == 200) {
+              console.log(http.readyState, http.responseText);
+              document.querySelector(".display").innerHTML = http.responseText;
+            }
+          };
+          http.send();
+          console.log("Ended");
         });
     </script>
-</body>
+  </body>
 </html>
