@@ -9,6 +9,7 @@
     <h1>Welcome to AJAX</h1>
     <h2>Let's implement AJAX with XMLHttpRequest Object</h2>
     <button id="btn" type="button">Send a Request</button>
+    <p class="display"></p>
 
 
     <script>
@@ -22,7 +23,9 @@
            console.log(http.readyState,"After the Response text printed");
 
            http.onreadystatechange = function() {
-               console.log(http.readyState,"Inside on ReadyState onChanage");
+               if (http.readyState==4 && http.status==200) {
+                document.querySelector(".display").innerHTML=http.responseText;
+               }
            }
         });
     </script>
