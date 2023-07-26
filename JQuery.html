@@ -23,6 +23,12 @@
         .addEventListener("click", function (event) {
           $.ajax({
             url: "db/db.txt",
+            async: false, //false=Synchronous(Blocking) , true=Asynchronous(Non-Blockiung)
+            success: function (resp) {
+              console.log(resp);
+
+              document.querySelector(".display").innerHTML = resp;
+            },
           });
           console.log("Ended");
         });
