@@ -15,13 +15,9 @@
     <script>
         document.querySelector("#btn").addEventListener("click", function(event) {
            let http = new XMLHttpRequest();
-           console.log(http.readyState,"After the XMLHttpRequest Object created");
            http.open("GET", "db/db.txt", true);
            console.log(http.responseText);
-           console.log(http.readyState,"After the Opne method invoked");
            http.send();
-           console.log(http.readyState,"After the Response text printed");
-
            http.onreadystatechange = function() {
                if (http.readyState==4 && http.status==200) {
                 document.querySelector(".display").innerHTML=http.responseText;
