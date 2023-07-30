@@ -1,0 +1,22 @@
+<Customers>
+    <Customer>
+        <id>C001</id>
+        <name>Harshana</name>
+        <address>Mahiyanaganaya</address>
+        <salary>50000.00</salary>
+    </Customer>
+
+    <Customer>
+        <id>C002</id>
+        <name>Nethsara</name>
+        <address>Badulla</address>
+        <salary>20000.00</salary>
+    </Customer>
+
+    <Customer>
+        <id>C003</id>
+        <name>Thamindu</name>
+        <address>Kaluthara</address>
+        <salary>40000.00</salary>
+    </Customer>
+</Customers>

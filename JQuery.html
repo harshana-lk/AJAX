@@ -8,7 +8,8 @@
   <body>
     <h1>Welcome to AJAX</h1>
     <h2>Let's implement AJAX with Jquery</h2>
-    <button id="btn" type="button">Send a Request</button>
+    <button id="btn1" type="button">Send a Request</button>
+    <button id="btn2" type="button">Send a Request</button>
     <p class="display"></p>
 
     <script
@@ -19,7 +20,7 @@
 
     <script>
       document
-        .querySelector("#btn")
+        .querySelector("#btn1")
         .addEventListener("click", function (event) {
           $.ajax({
             url: "db/db.txt",
@@ -28,6 +29,27 @@
               console.log(resp);
 
               document.querySelector(".display").innerHTML = resp;
+            },
+            error: function (xhr) {
+              console.log(xhr);
+            },
+          });
+          console.log("Ended");
+        });
+
+      document
+        .querySelector("#btn2")
+        .addEventListener("click", function (event) {
+          $.ajax({
+            url: "db/db.xml",
+            async: false, //false=Synchronous(Blocking) , true=Asynchronous(Non-Blockiung)
+            success: function (resp) {
+              console.log(resp);
+
+              document.querySelector(".display").innerHTML = resp;
+            },
+            error: function (xhr) {
+              console.log(xhr);
             },
           });
           console.log("Ended");
