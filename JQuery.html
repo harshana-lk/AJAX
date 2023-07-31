@@ -18,24 +18,24 @@
     <section class="container-fluid">
       <div class="row mt-4">
         <div class="col-2">
-          <button id="btn1" class="btn btn-danger" type="button">
+          <button id="btn1" class="btn btn-primary" type="button">
             Send a Request(String)
           </button>
         </div>
         <div class="col">
-          <p class="display1"></p>
+          <p class="display1 bg-primary"></p>
         </div>
       </div>
 
       <div class="row mt-4">
         <div class="col-2">
-          <button id="btn2" class="btn btn-danger" type="button">
+          <button id="btn2" class="btn btn-warning" type="button">
             Send a Request (XML)
           </button>
         </div>
         <div class="col">
           <table
-            class="table-bordered table table-hover table-responsive table-responsive-xxl table-primary table-dark"
+            class="table-bordered table table-hover table-responsive table-responsive-xxl bg-warning"
           >
             <thead>
               <tr>
@@ -45,7 +45,30 @@
                 <th>Salary</th>
               </tr>
             </thead>
-            <tbody id="tblCustomer"></tbody>
+            <tbody id="tblCustomer1"></tbody>
+          </table>
+        </div>
+      </div>
+
+      <div class="row mt-4">
+        <div class="col-2">
+          <button id="btn3" class="btn btn-success" type="button">
+            Send a Request (JSON)
+          </button>
+        </div>
+        <div class="col">
+          <table
+            class="table-bordered table table-hover table-responsive table-responsive-xxl bg-success"
+          >
+            <thead>
+              <tr>
+                <th>ID</th>
+                <th>Name</th>
+                <th>Address</th>
+                <th>Salary</th>
+              </tr>
+            </thead>
+            <tbody id="tblCustomer2"></tbody>
           </table>
         </div>
       </div>
@@ -89,7 +112,7 @@
             url: "db/db.xml",
             async: false, //false=Synchronous(Blocking) , true=Asynchronous(Non-Blockiung)
             success: function (resp) {
-              $("#tblCustomer").empty();
+              $("#tblCustomer1").empty();
               console.log(resp); // print the XML Object
 
               // Converting to Jquery Object
@@ -122,7 +145,41 @@
                   <td>${salary}</td>
                 </tr>`;
 
-                $("#tblCustomer").append(row);
+                $("#tblCustomer1").append(row);
+              }
+            },
+            error: function (xhr) {
+              console.log(xhr);
+            },
+          });
+          console.log("Ended");
+        });
+
+      document
+        .querySelector("#btn3")
+        .addEventListener("click", function (event) {
+          $.ajax({
+            url: "db/db.json",
+            async: false, //false=Synchronous(Blocking) , true=Asynchronous(Non-Blockiung)
+            success: function (resp) {
+              $("#tblCustomer2").empty();
+              console.log(resp); // print the XML Object
+
+              for (let i in resp) {
+                let id = resp[i].id;
+                let name = resp[i].name;
+                let address = resp[i].address;
+                let salary = resp[i].salary;
+
+                let row = `
+                <tr>
+                  <td>${id}</td>
+                  <td>${name}</td>
+                  <td>${address}</td>
+                  <td>${salary}</td>
+                </tr>`;
+
+                $("#tblCustomer2").append(row);
               }
             },
             error: function (xhr) {

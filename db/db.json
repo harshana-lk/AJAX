@@ -1,0 +1,32 @@
+[
+  {
+    "id": "C001",
+    "name": "John",
+    "address": "New York",
+    "salary": 10000
+  },
+  {
+    "id": "C002",
+    "name": "John",
+    "address": "New York",
+    "salary": 10000
+  },
+  {
+    "id": "C003",
+    "name": "John",
+    "address": "New York",
+    "salary": 10000
+  },
+  {
+    "id": "C004",
+    "name": "John",
+    "address": "New York",
+    "salary": 10000
+  },
+  {
+    "id": "C005",
+    "name": "John",
+    "address": "New York",
+    "salary": 10000
+  }
+]
